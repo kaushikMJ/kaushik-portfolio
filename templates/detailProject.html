@@ -1,0 +1,16 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+
+<p><h1>{{project.title}}</h1> &nbsp&nbsp <h5>
+	{% if project.liveUrl %}
+	<a href="{{project.liveUrl}}">Live</a> 
+	{% endif %}
+&nbsp</h5><h5><a href="{{project.githubUrl}}">Github</a> &nbsp</h5></p>
+<h5>{{project.startDate|date:'M'}} , {{project.startDate|date:'Y'}} --- {{project.endDate|date:'M'}} , {{project.endDate|date:'Y'}}</h5>
+
+
+<p>{{project.longDescription|safe}}</p>
+<br>
+<p>Tech Stack : <b>{{project.techStack|safe}}</b></p>
+{% endblock %}

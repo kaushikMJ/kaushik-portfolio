@@ -1,0 +1,49 @@
+{% extends "base2.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="row justify-content-center my-3">
+  <div class="col-5">
+    <img src="{% static 'portfolio/resumePic.jpg' %}" class=" center" height="300" width="800">
+  </div>
+</div>
+
+<div class="row justify-content-center mb-3">
+  <div class="col-md-9 text-center">
+    <h1  class="font-weight-bold">Kaushik Mahajan is an aspiring Software Developer .<br>He loves problem solving.<br>😊</h1>
+  </div>
+</div>
+
+
+<div id="projects">
+  <h2 class="mt-5">Portfolio Projects</h2>
+  <hr>
+  <div class="row">
+    {% for project in projects %}
+    <div class="col-lg-4 col-md-6">
+
+      <!-- {% if project.url %}
+      <a href="{{ project.url }}">
+        {% if project.image.url %}
+        <img src="{{ project.image.url }}" class="img-fluid mb-2">
+        {% endif %}
+      </a>
+      {% else %}
+
+      <img src="{{ project.image.url }}" class="img-fluid mb-2">
+      {% endif %}
+      <a href="{% url 'portfolio:detailProject' project.id %}"><h3>{{ project.title }}</h3></a>
+      <p>{{ project.shortDescription|safe}}</p> -->
+
+      <img src="{{ project.imageurl }}" class="img-fluid mb-2">
+      
+      <a href="{% url 'portfolio:detailProject' project.id %}"><h3>{{ project.title }}</h3></a>
+      <p>{{ project.shortDescription|safe}}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

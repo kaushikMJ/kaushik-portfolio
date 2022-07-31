@@ -1,0 +1,23 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+
+<h1 style="text-align: center;">ALL PROJECTS</h1>
+<!--{{blogs.count|pluralize}}...if no of blog is 1 then it shows 1 blog and if number is greater than 1 then show 3 blogs or 4 blogs-->
+<h2>Kaushik has done {{projects.count}} project{{projects.count|pluralize}}</h2>
+{% for project in projects %}
+
+<!---this was not working <a href="blog/{{blog.pk}}/" ><h2>{{blog.title}}</h2></a>-->
+
+<!--This was working:<a href="./{{blog.pk}}/" ><h2>{{blog.title}}</h2></a> -->
+
+<!--In below line, blog:detail...here blog is app name and detail is the url name in urls.py...the app_name is written in urls.py of blog app-->
+<div >
+<a href="{% url 'portfolio:detailProject' project.id %}" ><h2>{{project.title}}</h2></a>
+
+<p>{{project.description| striptags|truncatechars:50}}</p><br><br>
+</div>
+
+{% endfor %}
+
+{% endblock %}

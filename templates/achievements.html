@@ -1,0 +1,24 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+
+<h1 style="text-align: center;">ACHIEVEMENTS</h1>
+<!--{{blogs.count|pluralize}}...if no of blog is 1 then it shows 1 blog and if number is greater than 1 then show 3 blogs or 4 blogs-->
+
+
+{% for achievement in achievements%}
+
+<!---this was not working <a href="blog/{{blog.pk}}/" ><h2>{{blog.title}}</h2></a>-->
+
+<!--This was working:<a href="./{{blog.pk}}/" ><h2>{{blog.title}}</h2></a> -->
+
+<!--In below line, blog:detail...here blog is app name and detail is the url name in urls.py...the app_name is written in urls.py of blog app-->
+
+<p>⁕ {{achievement.description|safe}}<br>{{achievement.date}}</p>
+
+
+<br><br>
+
+{% endfor %}
+
+{% endblock %}
